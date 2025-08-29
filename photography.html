@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Photography · Melisa Mazaeva</title>
+<style>
+  body {
+    margin:0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background:#ffffff; color:#242424;
+  }
+  .wrap { max-width: 1100px; margin:0 auto; padding:20px; }
+  h1 { font-size:28px; font-weight:700; margin-bottom:20px; letter-spacing:-0.02em; }
+
+  /* Gallery grid */
+  .grid {
+    display:grid;
+    grid-template-columns: repeat(2, 1fr); /* always 4 columns */
+    gap: 0px; /* ~1mm on most screens */
+  }
+  .grid img {
+    width:100%;
+    height:auto;
+    border-radius:0;          /* no rounded corners */
+    object-fit:cover;
+    display:block;
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="back" href="index.html">← Back to Home</a>
+    <h1>Photography</h1>
+    <div class="grid">
+      <img src="photos/night_1.JPG" alt="Photo 1">
+      <img src="photos/night_2.JPG" alt="Photo 2">
+      <img src="photos/night_3.JPG" alt="Photo 3">
+      <img src="photos/night_4.JPG" alt="Photo 4">
+      <img src="photos/flash_1.JPG" alt="Photo 5">
+      <img src="photos/flash_2.JPG" alt="Photo 6">
+      <img src="photos/flash_3.JPG" alt="Photo 7">
+      <img src="photos/flash_4.JPG" alt="Photo 8">
+      <!-- Add more images here -->
+    </div>
+  </div>
+</body>
+</html>
