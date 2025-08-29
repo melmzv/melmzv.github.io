@@ -34,15 +34,35 @@
     .profile img{ width:100%; height:auto; border:none; border-radius:0; object-fit:cover; }
 
     /* iMessage bubbles (right side) */
-    .bubble-stack{ display:grid; gap:0px; }
-    .bubble{
-      display:inline-block; padding:10px 14px; border-radius:18px;
-      background:var(--bubble-blue); color:#fff; font-size:18px; line-height:1.45;
-      border:1px solid rgba(0,0,0,.2); max-width:56ch;
-      box-shadow: 0 4px 20px rgba(68,127,246,.25);
+    /* Stack: don't stretch children to full width */
+    .bubble-stack{
+      display: grid;
+      gap: 6px;                 /* whatever spacing you like */
+      justify-items: start;     /* <<< key: variable widths */
+      align-items: start;
     }
-    .bubble.is-wide{ max-width:none; display:block; }
 
+    /* Bubbles size to content, with a sensible max */
+    .bubble{
+      display: inline-block;
+      width: fit-content;       /* shrink-to-content */
+      max-width: min(60ch, 90vw);
+      padding: 10px 14px;
+      border-radius: 18px;
+      background: var(--bubble-blue);
+      color: #fff;
+      line-height: 1.45;
+      border: 1px solid rgba(0,0,0,.2);
+      box-shadow: 0 4px 20px rgba(68,127,246,.25);
+      margin: 4px 0;
+    }
+
+    /* Use this when you *want* a full-width bubble */
+    .bubble.is-wide{
+      width: 100%;
+      max-width: none;
+      justify-self: stretch;    /* fill the column */
+    }
     /* Links row (Wilson-style) */
     .links{ display:flex; gap:18px; align-items:center; margin:18px 0 12px; padding:0 2px; }
     .links a{ color:var(--accent); text-decoration:none; }
@@ -110,7 +130,7 @@
 
         <p class="bubble">My Master’s Thesis applies large-language models to explore how framing and source credibility influence investor interpretation of earnings news.</p>
 
-        <p class="bubble">I work with Python, R, and Stata on a daily basis, manage ERP systems, and analyze complex financial documents. Outside of finance, I enjoy photography and design work in Pixelmator. 📸</p>
+        <p class="bubble">I combine skills in Python and R with hands-on ERP and financial analysis, turning complex data into clear insights. Beyond finance, I pursue photography and have published my own portfolio, with design work created in Pixelmator. 📸</p>
 
         <p class="bubble is-wide">Academic projects are highlighted below — they range from AI-enhanced satellite imagery in institutional lending decisions to empirical studies on investor protection and audit concentration. 🌐 💻 My work is consistently inspired by reproducibility and transparency principles of TRR 266.</p>
 
