@@ -63,14 +63,30 @@
       font-size:13px; color:var(--ink-dim); background:#0b0b0d;
     }
 
-    .shots{
-      display:grid; gap:16px; grid-template-columns:repeat(3, 1fr);
+    .shots {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      justify-items: center;   /* centers images in their grid cells */
     }
-    .shots img{
-      width:100%; height:auto; display:block; object-fit:cover;
-      border-radius:12px; border:1px solid var(--line);
-      background:#111;
+    .shots img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: #111;
     }
+          /* Case where only one image in .shots */
+      .shots:has(img:only-child) {
+        justify-content: center;     /* center the image */
+      }
+
+      .shots:has(img:only-child) img {
+        max-width: 60%;              /* or 50–70% depending on taste */
+        margin: 0 auto;
+      }
     @media (max-width:820px){ .shots{ grid-template-columns:1fr; } }
   </style>
 </head>
@@ -104,7 +120,7 @@
     <!-- LINKS ROW -->
     <nav class="links">
       <a href="photography.html">Photography</a>
-      <a href="https://www.linkedin.com/in/melisa-mazaeva" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.linkedin.com/in/melisamazaeva" target="_blank" rel="noopener">LinkedIn</a>
       <a href="https://huggingface.co/melmzv" target="_blank" rel="noopener">HuggingFace</a>
       <a href="https://github.com/melmzv" target="_blank" rel="noopener">GitHub</a>
     </nav>
@@ -121,7 +137,8 @@
           Innovative application of GPT-5 to study how framing and source credibility affect investor interpretation of earnings news.
         </p>
         <p class="sub">
-          Uses FinBERT to pre-screen headlines for sentiment neutrality, isolating framing effects.
+          Uses FinBERT (via <a href="https://huggingface.co/ProsusAI/finbert" target="_blank" rel="noopener">Hugging Face</a>) 
+          to pre-screen headlines for sentiment neutrality, isolating framing effects.
         </p>
         <p class="sub">
           High relevance for large-cap firms: subtle changes in Big Tech earnings headlines can alter perceived credibility and investor caution.
