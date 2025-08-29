@@ -10,94 +10,61 @@
       --ink-dim: #555;
       --line: #e5e5ea;
       --bubble: #e9e9eb;
-      --wrap: 990px;
+      --wrap: 990px;            /* page width (try 900–1200) */
+      --accent: #0071e3;        /* Apple blue; try #ff3b30 (red), #34c759 (green) */
     }
     html, body { height: 100%; }
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      background: #ffffff;
-      color: var(--ink);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
+    body{
+      margin:0;
+      font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background:#ffffff; color:var(--ink); line-height:1.6;
+      -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
     }
-    .wrap { max-width: var(--wrap); margin: 0 auto; padding: 28px 20px 40px; }
+    .wrap{ max-width:var(--wrap); margin:0 auto; padding:28px 20px 40px; }
 
-    /* Hero layout */
-    header.hero {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 28px;
-      align-items: center;
-      padding: 12px 0 10px;
+    /* HERO */
+    header.hero{
+      display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:center; padding:12px 0 10px;
     }
-    @media (max-width: 820px){ header.hero { grid-template-columns: 1fr; } }
+    @media (max-width:820px){ header.hero{ grid-template-columns:1fr; } }
 
-    /* Profile photo full rectangle */
-    .profile { text-align: left; }
-    .profile img {
-      width: 100%;
-      height: auto;
-      border: none;
-      border-radius: 0;
-      object-fit: cover; /* keeps your 3:2 proportion */
-    }
+    /* Left: big rectangular photo */
+    .profile{ text-align:left; }
+    .profile img{ width:100%; height:auto; border:none; border-radius:0; object-fit:cover; }
 
-    /* iMessage bubbles */
-    .bubble-stack { display: grid; gap: 12px; }
-    .bubble {
-      display: inline-block;
-      padding: 10px 14px;
-      border-radius: 18px;
-      background: var(--bubble);
-      color: var(--ink);
-      font-size: 18px;
-      line-height: 1.45;
-      border: 1px solid var(--line);
-      max-width: 56ch;
+    /* iMessage bubbles (right side) */
+    .bubble-stack{ display:grid; gap:12px; }
+    .bubble{
+      display:inline-block; padding:10px 14px; border-radius:18px;
+      background:var(--bubble); color:var(--ink); font-size:18px; line-height:1.45;
+      border:1px solid var(--line); max-width:56ch;
     }
-    .bubble.is-wide { max-width: none; display: block; }
+    .bubble.is-wide{ max-width:none; display:block; }
 
-    /* Links row */
-    .links {
-      display:flex; gap:18px; align-items:center;
-      margin: 18px 0 12px; padding: 0 2px;
-    }
-    .links a {
-      color:#0071e3; text-decoration:none;
-    }
-    .links a:hover { text-decoration:underline; }
+    /* Links row (Wilson-style) */
+    .links{ display:flex; gap:18px; align-items:center; margin:18px 0 12px; padding:0 2px; }
+    .links a{ color:var(--accent); text-decoration:none; }
+    .links a:hover{ text-decoration:underline; }
 
-    /* Projects (unchanged from before) */
-    .projects { margin: 26px 0 40px; display: grid; gap: 28px; }
-    .project {
-      position: relative; overflow:hidden; border-radius:16px;
-      border: 1px solid #e5e5ea; background:#fafafa;
+    /* Wilson-style case list */
+    .rule{ height:6px; background:var(--accent); border-radius:3px; margin:28px 0 22px; }
+    .case{ margin:0 0 44px; }
+    .case h3{
+      margin:0 0 6px; font-size:clamp(20px, 3vw, 28px); font-weight:800;
+      letter-spacing:-0.02em; line-height:1.15;
     }
-    .project img {
-      width: 100%; height: clamp(260px, 52vh, 520px);
-      object-fit: cover; display:block; transition: transform .5s ease;
+    .case .sub{ margin:0 0 14px; color:var(--ink-dim); font-size:14px; }
+    .case .sub a{ color:var(--accent); text-decoration:none; }
+    .case .sub a:hover{ text-decoration:underline; }
+
+    .shots{
+      display:grid; gap:16px; grid-template-columns:repeat(3, 1fr);
     }
-    .project:hover img { transform: scale(1.02); }
-    .project .meta {
-      position: absolute; left: 16px; bottom: 14px; right: 16px;
-      background: rgba(255,255,255,.78);
-      -webkit-backdrop-filter: saturate(140%) blur(6px);
-      backdrop-filter: saturate(140%) blur(6px);
-      border: 1px solid #e5e5ea; border-radius:12px; padding: 12px 14px;
+    .shots img{
+      width:100%; height:auto; display:block; object-fit:cover;
+      border-radius:12px; border:1px solid var(--line);
     }
-    .project .meta h2 {
-      margin: 0 0 6px; font-size: clamp(18px, 2.6vw, 24px);
-      letter-spacing:-0.02em;
-    }
-    .project .meta p { margin:0 0 8px; color:#555; }
-    .project .meta ul { margin:0; padding-left: 18px; }
-    .project .meta a { color:#0071e3; text-decoration:none; }
-    .project .meta a:hover{ text-decoration:underline; }
-    @media (max-width: 820px){
-      .project .meta { position: static; background:#fff; border: none; margin-top: 8px; }
-    }
+    @media (max-width:820px){ .shots{ grid-template-columns:1fr; } }
   </style>
 </head>
 <body>
@@ -135,53 +102,47 @@
       <a href="https://github.com/melmzv" target="_blank" rel="noopener">GitHub</a>
     </nav>
 
-    <!-- PROJECTS (single long page) -->
-    <section class="projects">
-      <!-- Project 1 -->
-      <article class="project">
-        <img src="projects/reddit_earnings_llm.jpg" alt="LLM × Earnings Framing — thesis">
-        <div class="meta">
-          <h2>LLM × Earnings Framing</h2>
-          <p>Master’s Thesis · Simulating investor interpretation from Reddit-style posts</p>
-          <ul>
-            <li>Experimental pipeline; reproducible with Quarto</li>
-            <li>Measures directional expectations & predictive signal</li>
-            <li><a href="https://github.com/melmzv" target="_blank" rel="noopener">Repo</a></li>
-          </ul>
+    <!-- CASES (single long page) -->
+    <section class="cases">
+      <!-- Case 1 -->
+      <div class="rule" aria-hidden="true"></div>
+      <article class="case">
+        <h3>LLM × Earnings Framing</h3>
+        <p class="sub">Master’s thesis · Simulating investor interpretation from Reddit-style posts. <a href="https://github.com/melmzv" target="_blank" rel="noopener">Repo</a></p>
+        <div class="shots">
+          <img src="projects/reddit_earnings_llm_01.jpg" alt="Thesis – pipeline overview">
+          <img src="projects/reddit_earnings_llm_02.jpg" alt="Prompting / labeling example">
+          <img src="projects/reddit_earnings_llm_03.jpg" alt="Results / metrics">
         </div>
       </article>
 
-      <!-- Project 2 -->
-      <article class="project">
-        <img src="projects/fed_speeches_sentiment.jpg" alt="Sentiment of Fed speeches 2008">
-        <div class="meta">
-          <h2>sentiment-macro-dynamics</h2>
-          <p>VADER sentiment on 2008 Fed speeches · Tone vs policy events</p>
-          <ul>
-            <li>Clean repo for replication</li>
-            <li>Plots and time-series summaries</li>
-            <li><a href="https://github.com/melmzv/sentiment-macro-dynamics" target="_blank" rel="noopener">Repo</a></li>
-          </ul>
+      <!-- Case 2 -->
+      <div class="rule" aria-hidden="true"></div>
+      <article class="case">
+        <h3>sentiment-macro-dynamics</h3>
+        <p class="sub">VADER sentiment on 2008 Fed speeches · tone vs. policy events. <a href="https://github.com/melmzv/sentiment-macro-dynamics" target="_blank" rel="noopener">Repo</a></p>
+        <div class="shots">
+          <img src="projects/fed_speeches_sentiment_01.jpg" alt="Time-series sentiment">
+          <img src="projects/fed_speeches_sentiment_02.jpg" alt="Event alignment">
+          <img src="projects/fed_speeches_sentiment_03.jpg" alt="Distribution plots">
         </div>
       </article>
 
-      <!-- Project 3 -->
-      <article class="project">
-        <img src="projects/huwiwi_thesis_template.jpg" alt="HU Wiwi Quarto Thesis template">
-        <div class="meta">
-          <h2>huwiwiQuartoThesis</h2>
-          <p>Quarto template for HU Berlin theses (HTML & PDF)</p>
-          <ul>
-            <li>Figure caption helpers · GH Pages publishing</li>
-            <li><a href="https://github.com/melmzv/huwiwiQuartoThesis" target="_blank" rel="noopener">Repo</a></li>
-          </ul>
+      <!-- Case 3 -->
+      <div class="rule" aria-hidden="true"></div>
+      <article class="case">
+        <h3>huwiwiQuartoThesis</h3>
+        <p class="sub">Quarto template for HU Berlin theses (HTML & PDF). <a href="https://github.com/melmzv/huwiwiQuartoThesis" target="_blank" rel="noopener">Repo</a></p>
+        <div class="shots">
+          <img src="projects/huwiwi_thesis_template_01.jpg" alt="Template cover">
+          <img src="projects/huwiwi_thesis_template_02.jpg" alt="Section layout">
+          <img src="projects/huwiwi_thesis_template_03.jpg" alt="Figure caption helpers">
         </div>
       </article>
+
+      <!-- Final separator (optional) -->
+      <div class="rule" aria-hidden="true"></div>
     </section>
-
-    <!-- Optional divider & future sections -->
-    <!-- <div class="divider"></div> -->
-    <!-- <section class="section">More content here…</section> -->
   </div>
 </body>
 </html>
