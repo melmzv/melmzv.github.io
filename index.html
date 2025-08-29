@@ -48,15 +48,20 @@
     .links a:hover{ text-decoration:underline; }
 
     /* Wilson-style case list */
-    .rule{ height:12px; background:var(--accent); margin:36px 0 24px; } /* 2x thicker, square ends */
+    .rule{ height:12px; background:var(--accent); margin:36px 0 24px; } /* thick, square ends */
     .case{ margin:0 0 44px; }
     .case h3{
       margin:0 0 6px; font-size:clamp(20px, 3vw, 28px); font-weight:800;
       letter-spacing:-0.02em; line-height:1.15;
     }
-    .case .sub{ margin:0 0 14px; color:var(--ink-dim); font-size:14px; }
-    .case .sub a{ color:var(--accent); text-decoration:none; }
-    .case .sub a:hover{ text-decoration:underline; }
+    .case .sub{ margin:0 0 12px; color:var(--ink-dim); font-size:14px; }
+
+    /* small accomplishment/info chips (no bullets) */
+    .tags{ display:flex; flex-wrap:wrap; gap:8px; margin:10px 0 16px; }
+    .tag{
+      padding:6px 10px; border:1px solid var(--line); border-radius:999px;
+      font-size:13px; color:var(--ink-dim); background:#0b0b0d;
+    }
 
     .shots{
       display:grid; gap:16px; grid-template-columns:repeat(3, 1fr);
@@ -106,15 +111,24 @@
 
     <!-- CASES (single long page) -->
     <section class="cases">
-      <!-- Case 1 -->
+      <!-- Case 1: Master’s Thesis -->
       <div class="rule" aria-hidden="true"></div>
       <article class="case">
-        <h3>LLM × Earnings Framing</h3>
-        <p class="sub">Master’s thesis · Simulating investor interpretation from Reddit-style posts. <a href="https://github.com/melmzv" target="_blank" rel="noopener">Repo</a></p>
+        <h3>Peer-benchmark framing and source credibility in earnings headlines: Evidence from an LLM experiment</h3>
+        <p class="sub">Master’s thesis · ongoing · private project</p>
+
+        <p class="sub">
+          Innovative application of GPT-5 to study how framing and source credibility affect investor interpretation of earnings news.
+        </p>
+        <p class="sub">
+          Uses FinBERT to pre-screen headlines for sentiment neutrality, isolating framing effects.
+        </p>
+        <p class="sub">
+          High relevance for large-cap firms: subtle changes in Big Tech earnings headlines can alter perceived credibility and investor caution.
+        </p>
+
         <div class="shots">
-          <img src="projects/reddit_earnings_llm_01.jpg" alt="Thesis – pipeline overview">
-          <img src="projects/reddit_earnings_llm_02.jpg" alt="Prompting / labeling example">
-          <img src="projects/reddit_earnings_llm_03.jpg" alt="Results / metrics">
+          <img src="projects/finbert_neutral_check.png" alt="FinBERT neutral score check">
         </div>
       </article>
 
@@ -122,14 +136,23 @@
       <div class="rule" aria-hidden="true"></div>
       <article class="case">
         <h3>sentiment-macro-dynamics</h3>
-        <p class="sub">VADER sentiment on 2008 Fed speeches · tone vs. policy events. <a href="https://github.com/melmzv/sentiment-macro-dynamics" target="_blank" rel="noopener">Repo</a></p>
-        <div class="shots">
-          <img src="projects/fed_speeches_sentiment_01.jpg" alt="Time-series sentiment">
-          <img src="projects/fed_speeches_sentiment_02.jpg" alt="Event alignment">
-          <img src="projects/fed_speeches_sentiment_03.jpg" alt="Distribution plots">
-        </div>
-      </article>
+        <p class="sub">
+          Python-based VADER sentiment analysis of Federal Reserve communications during the 2008 financial crisis.  
+          Conducted at <a href="https://www.diw.de/sixcms/detail.php?id=diw_01.c.617916.en" target="_blank" rel="noopener">DIW Berlin</a> (German Institute for Economic Research).  
+          <a href="https://github.com/melmzv/sentiment-macro-dynamics" target="_blank" rel="noopener">Repo</a>
+        </p>
 
+        <p class="sub">
+          The project quantifies how shifts in Fed language signal macroeconomic stress and policy intent.  
+          Beyond replication, the framework can be applied to future crises to anticipate central bank responses.
+        </p>
+
+        <div class="shots">
+          <img src="projects/figure_individual_speeches.png" alt="Sentiment of individual speeches">
+          <img src="projects/figure_quarterly_mean_median.png" alt="Quarterly mean & median sentiment">
+          <img src="projects/tone_plot.png" alt="Aggregate tone plot">
+        </div>
+      </article>  
       <!-- Case 3 -->
       <div class="rule" aria-hidden="true"></div>
       <article class="case">
