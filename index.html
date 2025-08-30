@@ -63,18 +63,42 @@
       max-width: none;
       justify-self: stretch;    /* fill the column */
     }
-    /* Links row (Wilson-style) */
+    /* Links row */
     .links{ display:flex; gap:18px; align-items:center; margin:18px 0 12px; padding:0 2px; }
     .links a{ color:var(--accent); text-decoration:none; }
     .links a:hover{ text-decoration:underline; }
 
-    /* Wilson-style case list */
-    .rule{ height:12px; background:var(--accent); margin:36px 0 24px; } /* thick, square ends */
+    .bubble a {
+      color: inherit;       /* same color as surrounding text */
+      text-decoration: underline; /* optional, remove if you don’t want underline */
+    }
+
+
+    .bubble a.hidden-link {
+      color: inherit;          /* same color as text */
+      text-decoration: none;   /* remove underline */
+      cursor: pointer;         /* still shows pointer on hover */
+    }
+    .case .sub a {
+      color: inherit;           /* same as surrounding text */
+      text-decoration: underline; 
+    }
+
+    .case h3 a {
+      color: inherit;        /* same color as text */
+      text-decoration: none; /* remove underline */
+    }
+
+    .case h3 a:hover {
+      text-decoration: underline; /* add subtle underline only on hover (optional) */
+      cursor: pointer;
+    }
+    .rule{ height:9px; background:var(--accent); margin:36px 0 36px; } /* thick, square ends */
     .case{ margin:0 0 44px; }
     .case h3 {
     font-size: 20px;
     }
-    .case .sub{ margin:0 0 12px; color:var(--ink-dim); font-size:14px; }
+    .case .sub{ margin:0 0 12px; color:var(--ink-dim); font-size:14px; font-weight:500; }
 
     /* small accomplishment/info chips (no bullets) */
     .tags{ display:flex; flex-wrap:wrap; gap:8px; margin:10px 0 16px; }
@@ -85,19 +109,22 @@
 
     .shots {
       display: grid;
-      gap: 16px;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      justify-items: center;   /* centers images in their grid cells */
+      gap: 16px;              /* spacing between images */
+      grid-template-columns: 1fr; /* one column only */
+      justify-items: center;  /* center each image */
     }
     .shots img {
-      max-width: 100%;
+      max-width: 60%;         /* keep images at 60% of container width */
       height: auto;
       display: block;
       object-fit: cover;
       border-radius: 12px;
       border: 1px solid var(--line);
       background: #111;
+      margin: 0 auto;
     }
+    
+    
           /* Case where only one image in .shots */
       .shots:has(img:only-child) {
         justify-content: center;     /* center the image */
@@ -131,13 +158,15 @@
 
         <p class="bubble">I combine skills in Python and R with ERP and financial analysis experience, turning complex data into clear insights. Academically, I have applied this rigor to real-life corporate restructuring cases (M&A, PE, LBOs, and financial distress).</p>
 
-        <p class="bubble">My academic projects are primarily empirical and inspired by reproducibility and transparency principles of TRR 266. 🌐 💻 Besides the projects showcased below, my work ranges from AI-enhanced satellite imagery in institutional lending to an analysis of the British census — examining statistical data collection, inflation-driven costs, and system adaptation under technological and economic change.</p>
+        <p class="bubble">My academic projects are primarily empirical and inspired by reproducibility and transparency principles of TRR 266. 🌐 💻 Besides the projects showcased below, my work ranges from AI-enhanced satellite imagery in institutional lending to an analysis of the British census - examining statistical data collection, inflation-driven costs, and system adaptation under technological and economic change.</p>
 
-        <p class="bubble">Beyonds finance, I pursue <a href="photography.html" target="_blank" rel="noopener">photography</a> and design in Pixelmator, including a liquid-style logo animation for HU Berlin below. 📸</p>
+        <p class="bubble">Beyond finance, I pursue <a href="photography.html" target="_blank" rel="noopener">photography</a> and design in Pixelmator, including a liquid-style logo animation for HU Berlin shown below. 📸</p>
 
-        <p class="bubble">Let’s connect and collaborate!</p>
+        <p class="bubble">
+          Let’s <a href="https://www.linkedin.com/in/melisamazaeva" target="_blank" rel="noopener" class="hidden-link">connect</a> 
+          and <a href="mailto:melisa.profile@gmail.com" class="hidden-link">collaborate</a>!
+        </p>
       </div>
-      
     </header>
 
     <!-- LINKS ROW -->
@@ -155,89 +184,128 @@
       <div class="rule" aria-hidden="true"></div>
       <article class="case">
         <h3>Master’s Thesis · LLM Experiment on Earnings Headlines</h3>
+        <p class="sub">
+          How do framing and source credibility affect investor interpretation of earnings news? 
+        </p>
+        <p class="sub">
+          Building an LLM experiment with GPT-5 + FinBERT 
+          (via <a href="https://huggingface.co/ProsusAI/finbert" target="_blank" rel="noopener">Hugging Face</a>) 
+          on 1,000+ synthetic headlines - contrasting social media (Reddit) with financial press (Wall Street Journal).
+        </p>
+        <p class="sub">
+          First LLM-based thesis in this niche. Highly relevant for large-cap firms: even subtle Big Tech earnings headlines (isolated from sentiment effects) can alter perceived credibility and caution.
+        </p>
 
-        <p class="sub">
-          Innovative application of GPT-5 to study how framing and source credibility affect investor interpretation of earnings news.
-        </p>
-        <p class="sub">
-          Uses FinBERT (via <a href="https://huggingface.co/ProsusAI/finbert" target="_blank" rel="noopener">Hugging Face</a>) 
-          to pre-screen headlines for sentiment neutrality, isolating framing effects.
-        </p>
-        <p class="sub">
-          High relevance for large-cap firms: subtle changes in Big Tech earnings headlines can alter perceived credibility and investor caution.
-        </p>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">HuggingFace</span>
+          <span class="tag">FinBERT</span>
+          <span class="tag">Transparent research</span>
+        </div>
 
         <div class="shots">
           <img src="projects/finbert_neutral_check.png" alt="FinBERT neutral score check">
         </div>
       </article>
 
-            <!-- Case 3 -->
+      <!-- Case 3 -->
       <div class="rule" aria-hidden="true"></div>
       <article class="case">
-        <h3>huwiwiQuartoThesis</h3>
+        <h3>
+          <a href="https://github.com/melmzv/huwiwiQuartoThesis" target="_blank" rel="noopener">
+            huwiwiQuartoThesis
+          </a>
+        </h3>
         <p class="sub">
-          Official Quarto/LaTeX thesis template I authored for the 
+          Can thesis writing be simplified and made reproducible for an entire faculty?
+        </p>
+        <p class="sub">
+          Authored an official Quarto/LaTeX template for the 
           <a href="https://www.wiwi.hu-berlin.de/de/professuren/bwl/rwuwp" target="_blank" rel="noopener">
             School of Business & Economics at HU Berlin
-          </a>, which has since been integrated into the institute’s official submission guidelines.
-          <a href="https://github.com/melmzv/huwiwiQuartoThesis" target="_blank" rel="noopener">Repo</a>
+          </a>, also adopted into official submission guidelines. Now widely used across the faculty, saving each student ~20+ hours of formatting work so they focus on research.
         </p>
+        
+        <div class="tags">
+          <span class="tag">Quarto</span>
+          <span class="tag">LaTeX</span>
+          <span class="tag">Reproducible workflows</span>
+          <span class="tag">HU Berlin</span>
+        </div>
 
-        <p class="sub">
-          Now widely used across the faculty, freeing students from formatting tasks so they stay focused on research.
-        </p>
-
-        <!-- Centered GIF -->
         <div style="text-align:center; margin-top:20px;">
-          <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExd3VxZ3Yyb2Nua2c4YXRvNmw2MTFsOG8xYmd4ZGZhdnlxZDhzdXJocyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/jthyqTJRQIWkKWqrIu/giphy.gif" 
+          <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExd3VxZ3Yyb2Nua2c4YXRvNmw2MTFsOG8xYmd4ZGZhdnlxZDhzdXJocyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/jthyqTJRQIWkKWqrIu/giphy.gif"
               alt="Celebration GIF" style="max-width:260px; border-radius:12px;" />
         </div>
       </article>
 
-
       <!-- Case 2 -->
       <div class="rule" aria-hidden="true"></div>
       <article class="case">
-        <h3>sentiment-macro-dynamics</h3>
+        <h3>
+          <a href="https://github.com/melmzv/sentiment-macro-dynamics" target="_blank" rel="noopener">
+            sentiment-macro-dynamics
+          </a>
+        </h3>
         <p class="sub">
-          Python-based VADER sentiment analysis of Federal Reserve communications during the 2008 financial crisis.  
-          Conducted at <a href="https://www.diw.de/sixcms/detail.php?id=diw_01.c.617916.en" target="_blank" rel="noopener">DIW Berlin</a> (German Institute for Economic Research).  
-          <a href="https://github.com/melmzv/sentiment-macro-dynamics" target="_blank" rel="noopener">Repo</a>
+          Can central bank tone signal crisis severity and policy intent?  
         </p>
-
         <p class="sub">
-          The project quantifies how shifts in Fed language signal macroeconomic stress and policy intent.  
-          Beyond replication, the framework can be applied to future crises to anticipate central bank responses.
+          Analyzed 70+ Federal Reserve speeches from 2008 with VADER sentiment analysis.  
+          Mapped tone shifts across quarters and policymakers, capturing deliberate use of tone to support credibility and calm markets, with a sharp rebound during the December QE1 announcement.
+          Methodology is generalizable and may be extended to international central banks (e.g., ECB), and broader macro-financial event detection pipelines.  
         </p>
-
+        <p class="sub">
+          Conducted at
+          <a href="https://www.diw.de/sixcms/detail.php?id=diw_01.c.617916.en" target="_blank" rel="noopener">DIW Berlin</a>
+          (German Institute for Economic Research).
+        </p>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">NLP</span>
+          <span class="tag">Sentiment analysis</span>
+          <span class="tag">VADER</span>
+          <span class="tag">Reproducible research</span>
+        </div>
         <div class="shots">
           <img src="projects/figure_individual_speeches.png" alt="Sentiment of individual speeches">
           <img src="projects/figure_quarterly_mean_median.png" alt="Quarterly mean & median sentiment">
           <img src="projects/tone_plot.png" alt="Aggregate tone plot">
         </div>
-      </article>  
+      </article>
 
       <!-- Case 4 -->
       <div class="rule" aria-hidden="true"></div>
       <article class="case">
-        <h3>ai-hiring-simulation</h3>
+        <h3>
+          <a href="https://github.com/melmzv/ai-hiring-simulation" target="_blank" rel="noopener">
+            ai-hiring-simulation
+          </a>
+        </h3>
+
+        <!-- Curiosity -->
         <p class="sub">
-          Custom-built simulation inspired by Le Barbanchon et al. (2023) to study how AI-driven job recommendations
-          affect match quality, retention, and wages.  
-          <a href="https://github.com/melmzv/ai-hiring-simulation" target="_blank" rel="noopener">Repo</a>
+          Can AI recommendations improve job matches - and for whom? <br>
+          Inspired by Le Barbanchon et&nbsp;al. (2023) and refined through discussion with the author.
         </p>
 
+        <!-- Impact -->
         <p class="sub">
-          Extends prior research by enabling subgroup analysis of high- vs. low-skill job seekers, uncovering how AI may amplify or reduce inequality in labor markets.
+          Built a Python simulation to pre-test a proposed U.S. RCT study design.  
+          RCT-style simulation shows higher match quality, retention ≈93% vs 78%, and wages ≈$47.9k vs $44.0k for treated job seekers.  
+          Biggest relative gains for low-skill workers; effects robust across repeated runs.
+        </p>
+        <p class="sub">
+        Highly relevant for fresh graduates entering job markets.
         </p>
 
+        <!-- Stack / methods -->
         <div class="tags">
-          <span class="tag">Python simulation</span>
-          <span class="tag">RCT-inspired design</span>
+          <span class="tag">Simulation</span>
+          <span class="tag">RCT-experiment</span>
           <span class="tag">Synthetic data</span>
-          <span class="tag">Job matching efficiency</span>
-          <span class="tag">High vs. low skill analysis</span>
+          <span class="tag">Cosine similarity</span>
+          <span class="tag">Subgroup analysis</span>
         </div>
 
         <div class="shots">
@@ -248,36 +316,72 @@
       <!-- Case: CQA Grand Analysis -->
       <div class="rule" aria-hidden="true"></div>
       <article class="case">
-        <h3>How much new information is there in earnings?</h3>
+        <h3>
+          <a href="https://github.com/melmzv/cqa_ws24_grand_analysis" target="_blank" rel="noopener">
+            How Much New Information is There in Earnings?
+          </a>
+        </h3>
 
+        <!-- Curiosity -->
         <p class="sub">
-          Explores the incremental information content of earnings announcements using a transparent, fully reproducible pipeline. <a href="https://github.com/melmzv/cqa_ws24_grand_analysis" target="_blank" rel="noopener">Repo</a>
+          Do quarterly earnings announcements provide new information or mainly confirm what markets already know?  
+        </p>
+
+        <!-- Impact -->
+        <p class="sub">
+          Replicated and extended Ball &amp; Shivakumar (2008) across datasets: mapped CRSP/Compustat to Worldscope/Datastream and aligned IDs, dates, and event windows.  
+          Event-study regressions show earnings explain ≈1–2% of annual stock return variation.  
+          Extended analysis to 2007–2023 and to Canada to test robustness across time and markets.
+        </p>
+        <!-- Relevance -->
+        <p class="sub">
+          Inspired my Master’s Thesis and contributes to debates on market efficiency and the role of accounting disclosures in investment decisions.  
         </p>
 
         <div class="tags">
           <span class="tag">Reproducible research</span>
-          <span class="tag">Earnings announcements</span>
+          <span class="tag">Cross-database mapping</span>
+          <span class="tag">CRSP / Compustat</span>
+          <span class="tag">Worldscope / Datastream</span>
           <span class="tag">Event-window analysis</span>
-          <span class="tag">Accounting research</span>
         </div>
-
-        <!-- Add a plot later if you like -->
-        <!-- <div class="shots"><img src="projects/your_plot.png" alt="Key result"></div> -->
+                <div class="shots">
+          <img src="projects/figure1_replication.png" alt="Replication – Figure 1">
+        </div>
       </article>
-      
+
       <!-- Case: Audit Market Concentration in the EU (CQA WS24) -->
       <div class="rule" aria-hidden="true"></div>
       <article class="case">
-        <h3>Audit Market Concentration in the EU</h3>
+        <h3>
+          <a href="https://github.com/melmzv/cqa_ws24_project" target="_blank" rel="noopener">
+            Audit Market Concentration in the EU
+          </a>
+        </h3>
+
+        <!-- Curiosity -->
         <p class="sub">
-          Measures auditor concentration across EU markets and highlights Big Four dominance using HHI and share dynamics. <a href="https://github.com/melmzv/cqa_ws24_project" target="_blank" rel="noopener">Repo</a>
+          How concentrated is EU auditing - who really signs PIE opinions across countries?
+        </p>
+
+        <!-- Impact -->
+        <p class="sub">
+          Replicated the EC (2024) figure using WRDS Audit Analytics Transparency Reports (2021). 
+          Computed Big&nbsp;4, CR4, and 10KAP shares per country + EU aggregate. 
+          Big&nbsp;4 exceed ≈80% in 11 Member States; EU-level ≈70% (10KAP ≈90%). 
+          Harmonized network names and duplicates to ensure cross-country comparability.
+        </p>
+
+        <!-- Relevance -->
+        <p class="sub">
+          Useful for competition policya and oversight discussions - where diversification is real vs. where Big&nbsp;4 dominance persists.
         </p>
 
         <div class="tags">
-          <span class="tag">Audit concentration</span>
-          <span class="tag">EU markets</span>
+          <span class="tag">Python</span>
+          <span class="tag">WRDS / Audit Analytics</span>
+          <span class="tag">Big4 · CR4 · 10KAP</span>
           <span class="tag">HHI / market shares</span>
-          <span class="tag">Competition policy</span>
           <span class="tag">Reproducible research</span>
         </div>
 
@@ -289,42 +393,70 @@
       <!-- Case: P/B Ratios & Future Residual Income (ARG TRR266) -->
       <div class="rule" aria-hidden="true"></div>
       <article class="case">
-        <h3>P/B Ratios and Future Residual Income</h3>
+        <h3>
+          <a href="https://github.com/melmzv/arg_trr266" target="_blank" rel="noopener">
+            P/B Ratios and Future Residual Income
+          </a>
+        </h3>
+
+        <!-- Curiosity -->
         <p class="sub">
-          Tests whether price-to-book captures expectations about future residual income under clean-surplus valuation logic. <a href="https://github.com/melmzv/arg_trr266" target="_blank" rel="noopener">Repo</a
+          Does P/B embed expectations about future residual income under clean-surplus logic?
+        </p>
+
+        <!-- Impact -->
+        <p class="sub">
+          Computed deflated residual income with a constant 8% cost of equity and grouped firms into 20 P/B buckets (trimmed P/B&nbsp;&le;&nbsp;7).  
+          Replicates Penman-style patterns: high P/B → higher near-term residuals that mean-revert; low P/B → persistently negative residuals.
+        </p>
+
+        <!-- Relevance -->
+        <p class="sub">
+          Practical for screening and valuation sanity checks.
         </p>
 
         <div class="tags">
-          <span class="tag">Valuation</span>
+          <span class="tag">Worldscope</span>
           <span class="tag">Residual income</span>
-          <span class="tag">Panel regressions</span>
-          <span class="tag">Reproducible pipeline</span>
-          <span class="tag">TRR 266</span>
+          <span class="tag">P/B grouping (20)</span>
+          <span class="tag">Reproducible research</span>
         </div>
-
-        <!-- Optional screenshot slot -->
-        <!-- <div class="shots"><img src="projects/pb_residual_income.png" alt="Model results"></div> -->
       </article>
 
       <!-- Case: Earnings Management & Investor Protection (ARG SS24) -->
       <div class="rule" aria-hidden="true"></div>
       <article class="case">
-        <h3>Earnings Management and Investor Protection</h3>
+        <h3>
+          <a href="https://github.com/melmzv/arg_ss24_project" target="_blank" rel="noopener">
+            Earnings Management and Investor Protection
+          </a>
+        </h3>
+
+        <!-- Curiosity -->
         <p class="sub">
-          Examines how investor-protection regimes relate to accrual-based earnings management across countries. <a href="https://github.com/melmzv/arg_ss24_project" target="_blank" rel="noopener">Repo</a>
+          Do stronger investor rights curb earnings management across countries?
+        </p>
+
+        <!-- Impact -->
+        <p class="sub">
+          Replicated Leuz–Nanda–Wysocki (2003) on Worldscope (1990–1999).  
+          31 countries · 18,040 firms · 123,469 firm-years.  
+          Rebuilt EM1–EM4 plus aggregate score; country ranks closely match the original.  
+          Patterns hold: weaker protection → more smoothing, larger accruals, loss avoidance.
+        </p>
+
+        <!-- Relevance -->
+        <p class="sub">
+          Benchmark for cross-country disclosure risk and governance screens.
         </p>
 
         <div class="tags">
-          <span class="tag">Earnings management</span>
+          <span class="tag">Worldscope</span>
           <span class="tag">Investor protection</span>
-          <span class="tag">Cross-country analysis</span>
-          <span class="tag">Accrual models</span>
+          <span class="tag">Cross-country</span>
           <span class="tag">Reproducible research</span>
         </div>
 
-        <div class="shots">
-          <img src="projects/figure1_replication.png" alt="Replication – Figure 1">
-        </div>
       </article>
 
     </section>
