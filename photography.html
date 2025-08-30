@@ -1,48 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Photography · Melisa Mazaeva</title>
-<style>
-  body {
-    margin:0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    background:#ffffff; color:#242424;
-  }
-  .wrap { max-width: 1100px; margin:0 auto; padding:20px; }
-  h1 { font-size:28px; font-weight:700; margin-bottom:20px; letter-spacing:-0.02em; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Melisa / Photography</title>
+  <style>
+    :root {
+      --wrap: 990px; /* page width */
+    }
 
-  /* Gallery grid */
-  .grid {
-    display:grid;
-    grid-template-columns: repeat(2, 1fr); /* always 4 columns */
-    gap: 0px; /* ~1mm on most screens */
-  }
-  .grid img {
-    width:100%;
-    height:auto;
-    border-radius:0;          /* no rounded corners */
-    object-fit:cover;
-    display:block;
-  }
-</style>
+    body {
+      margin: 0;
+      background-color: black;
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* red separator bar at top */
+    .separator {
+      width: 78%;
+      height: 10px;
+      background-color: #ed372f; /* Jason's red */
+      margin: 0 auto;            /* centers the bar horizontally */
+    }
+
+    /* page wrap */
+    .wrap {
+      max-width: var(--wrap);
+      margin: 0 auto;
+      padding: 28px 20px 40px;
+    }
+
+    /* header text */
+    .header {
+      font-size: 1.5rem;
+      margin-bottom: 24px;
+    }
+
+    .header a {
+  color: #ed372f; /* red for Melisa link */
+  text-decoration: underline;
+  font-weight: bold;
+    }   
+
+    .header .slash {
+      color: #565656; /* gray slash */
+      margin: 0 4px; /* small spacing */
+    }
+
+    .header .photography {
+      color: #ffffff; /* white text */
+    }
+
+    /* images layout */
+    .gallery img {
+      width: 100%;
+      display: block;
+      margin: 0 auto 20px auto;
+      border-radius: 8px; /* optional: matches your main site’s style */
+    }
+  </style>
 </head>
 <body>
+
+  <!-- Top red bar -->
+  <div class="separator"></div>
+
   <div class="wrap">
-    <a class="back" href="index.html">← Back to Home</a>
-    <h1>Photography</h1>
-    <div class="grid">
-      <img src="photos/night_1.JPG" alt="Photo 1">
-      <img src="photos/night_2.JPG" alt="Photo 2">
-      <img src="photos/night_3.JPG" alt="Photo 3">
-      <img src="photos/night_4.JPG" alt="Photo 4">
-      <img src="photos/flash_1.JPG" alt="Photo 5">
-      <img src="photos/flash_2.JPG" alt="Photo 6">
-      <img src="photos/flash_3.JPG" alt="Photo 7">
-      <img src="photos/flash_4.JPG" alt="Photo 8">
-      <!-- Add more images here -->
+    <!-- Header -->
+    <div class="header">
+      <a href="index.html">Melisa</a> 
+      <span class="slash">/</span> 
+      <span class="photography">Photography</span>
+    </div>
+
+    <!-- Image gallery -->
+    <div class="gallery">
+      <img src="images/photo1.jpg" alt="Photography 1">
+      <img src="images/photo2.jpg" alt="Photography 2">
+      <!-- add more <img> as needed -->
     </div>
   </div>
+
 </body>
 </html>
