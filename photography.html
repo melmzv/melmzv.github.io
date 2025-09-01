@@ -63,7 +63,7 @@
     /* images layout */
     .gallery {
       display: grid;
-      grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+      grid-template-columns: repeat(2, 1fr); /* 4 equal columns */
       gap: 12px; /* spacing between photos */
     }
 
@@ -74,14 +74,21 @@
       border-radius: 8px; /* optional */
       object-fit: cover;  /* keeps proportions without distortion */
     }
-
-    or use /* images layout */
-    .gallery img {
-      width: 100%;
-      display: block;
-      margin: 0 auto 20px auto;
-      border-radius: 8px;
+    .gallery-two {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
+      gap: 12px; /* spacing between the photos */
+      margin-top: 30px; /* space above */
     }
+
+    .gallery-two img {
+      width: 100%;       /* fill each half */
+      height: auto;
+      display: block;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
   </style>
 </head>
 <body>
@@ -104,6 +111,10 @@
     <img src="photos/night_3.jpeg" alt="Night photo 3">
     <img src="photos/night_4.jpeg" alt="Night photo 4">
   </div>
-
+  <!-- Two-photo row -->
+  <div class="gallery-two">
+    <img src="photos/flash_3.jpg" alt="Flash photo 3">
+    <img src="photos/flash_4.jpg" alt="Flash photo 4">
+  </div>
 </body>
 </html>
