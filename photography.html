@@ -89,6 +89,14 @@
       object-fit: cover;
     }
 
+    .fullwidth img {
+      width: 50%;      /* fills the entire page width */
+      max-width: 50%;  /* prevents shrinking */
+      height: auto;     /* keeps proportions */
+      display: block;
+      margin: 30px auto;   /* optional space above/below */
+      border-radius: 0; /* no rounding for edge-to-edge look */
+    }
   </style>
 </head>
 <body>
@@ -104,8 +112,8 @@
       <span class="photography">Photography</span>
     </div>
 
-    <!-- Image gallery -->
-   <div class="gallery">
+  <!-- Image gallery -->
+  <div class="gallery">
     <img src="photos/night_1.jpeg" alt="Night photo 1">
     <img src="photos/night_2.jpeg" alt="Night photo 2">
     <img src="photos/night_3.jpeg" alt="Night photo 3">
@@ -115,6 +123,14 @@
   <div class="gallery-two">
     <img src="photos/flash_33.jpg" alt="Flash photo 33">
     <img src="photos/flash_4.jpg" alt="Flash photo 4">
+  </div>
+     <!-- Full-width photo -->
+  <div class="fullwidth">
+    <img src="photos/liquid.jpg" alt="Liquid style logo" />
+  </div>
+  <footer style="text-align:center; margin-top:40px; font-size:12px; color:#666;">
+  © 2025 melmzv. All rights reserved.
+    </footer>
   </div>
 </body>
 </html>
