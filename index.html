@@ -90,9 +90,14 @@
 
 
     .bubble a.hidden-link {
-      color: inherit;          /* same color as text */
-      text-decoration: none;   /* remove underline */
-      cursor: pointer;         /* still shows pointer on hover */
+      color: inherit;          /* same as surrounding text (white) */
+      text-decoration: none;   /* no underline */
+      cursor: pointer;         
+      transition: color 0.3s ease; /* smooth transition */
+    }
+
+    .bubble a.hidden-link:hover {
+      color: #170706;          /* light blue on hover */
     }
     .case .sub a {
       color: inherit;           /* same as surrounding text */
@@ -249,7 +254,7 @@
 
         <div style="text-align:center; margin-top:20px;">
           <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExd3VxZ3Yyb2Nua2c4YXRvNmw2MTFsOG8xYmd4ZGZhdnlxZDhzdXJocyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/jthyqTJRQIWkKWqrIu/giphy.gif"
-              alt="Celebration GIF" style="max-width:310px; border-radius:12px;" />
+              alt="Celebration GIF" style="max-width:320px; border-radius:12px;" />
         </div>
       </article>
 
