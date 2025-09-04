@@ -20,7 +20,7 @@
     /* red separator bar at top */
     .separator {
       width: var(--wrap);
-      height: 9px;
+      height: 10px;
       background-color: #ed372f; /* Jason's red */
       margin: 0 auto;            /* center the bar */
     }
@@ -37,14 +37,28 @@
       font-size: 1.8rem; /* slightly bigger like Jason’s */
       font-weight: bold;
       margin: 23px 0;
-      margin-left: 10px;
+      margin-left: 30px;
     }
 
     /* Melisa (red, underlined) */
     .header a {
       color: #ed372f;
       text-decoration: underline;
+      text-underline-offset: 4px;      /* pushes the underline lower */
+      text-decoration-thickness: 1px;  /* makes it thinner */
       font-weight: bold;
+    }
+     /* Melisa (red, underlined) */
+    .header a {
+      color: #ed372f;
+      text-decoration: underline;
+      font-weight: bold;
+      transition: color 0.3s ease; /* smooth transition */
+    }
+
+    /* Hover effect */
+    .header a:hover {
+      color: #ffffff; /* turns white on hover */
     }
 
     /* Slash (gray) */
@@ -129,7 +143,6 @@
   <!-- New two-photo row -->
   <div class="gallery-two">
     <img src="photos/sits.jpg" alt="Sits photo">
-    <img src="photos/other.jpg" alt="Other photo"> <!-- replace 'other.jpg' later -->
   </div>
 
   <!-- Full-width photo -->

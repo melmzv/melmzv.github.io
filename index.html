@@ -29,6 +29,21 @@
     }
     @media (max-width:820px){ header.hero{ grid-template-columns:1fr; } }
 
+    /* Links row */
+    .links a {
+      color: var(--accent);            /* iMessage blue */
+      text-decoration: underline;
+      text-decoration-color: var(--accent); 
+      text-underline-offset: 3px;      /* move underline slightly down */
+      text-decoration-thickness: 1px;  /* thinner line */
+      transition: color 0.3s ease, text-decoration-color 0.3s ease;
+    }
+
+    .links a:hover {
+      color: #ffffff;                  /* text turns white */
+      text-decoration-color: #ffffff;  /* underline turns white */
+    }
+    
     /* Left: big rectangular photo */
     .profile{ text-align:left; }
     .profile img{ width:100%; height:auto; border:none; border-radius:0; object-fit:cover; }
@@ -160,7 +175,7 @@
 
         <p class="bubble">My academic projects are primarily empirical and inspired by reproducibility and transparency principles of TRR 266. 🌐 💻 Besides the projects showcased below, my work ranges from AI-enhanced satellite imagery in institutional lending to an analysis of the British census - examining statistical data collection, inflation-driven costs, and system adaptation under technological and economic change.</p>
 
-        <p class="bubble">Beyond finance, I pursue <a href="photography.html" target="_blank" rel="noopener">photography</a> and design in Pixelmator, including a liquid-style logo animation for HU Berlin shown below. 📸</p>
+        <p class="bubble">Beyond finance, I pursue <a href="photography.html" target="_blank" rel="noopener" class="hidden-link">photography</a> and design in Pixelmator, including a liquid-style logo animation for HU Berlin shown below. 📸</p>
 
         <p class="bubble">
           Let’s <a href="https://www.linkedin.com/in/melisamazaeva" target="_blank" rel="noopener" class="hidden-link">connect</a> 
