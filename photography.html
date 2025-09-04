@@ -44,6 +44,16 @@
       margin:0 auto 100px;   /* space between photos */
       border-radius:0;   /* square corners */
     }
+
+    /* Panorama: full page width */
+    .fullwidth {
+      display: block;
+      width: 100vw;        /* fills entire viewport width */
+      max-width: 130%;     
+      margin: 0;           /* remove margins */
+      height: auto;
+      border-radius: 0;
+    }
   </style>
 </head>
 <body>
@@ -65,15 +75,21 @@
     <img class="photo" src="photos/stands.jpeg"     alt="Sits photo">
     <img class="photo" src="photos/love.jpg"     alt="Sits photo">
     <img class="photo" src="photos/green.jpeg"     alt="Sits photo">
+    <img class="photo" src="photos/stand.jpg"     alt="Sits photo">
     <img class="photo" src="photos/chess.jpg"     alt="Sits photo">
     <img class="photo" src="photos/palm.jpg"     alt="Sits photo">
     <img class="photo" src="photos/tonne.jpg"     alt="Sits photo">
     <img class="photo" src="photos/sky.jpg"     alt="Sits photo">
     <img class="photo" src="photos/walk.jpg"     alt="Sits photo">
     <img class="photo" src="photos/dog2.jpg"     alt="Sits photo">
-    <img class="photo" src="photos/mount1.jpg"     alt="Sits photo">
-    <img class="photo" src="photos/liquid.jpg"   alt="Liquid style logo">
-  
+    <img class="photo" src="photos/mount1.jpg" alt="Mount photo">
+    <img class="photo" src="photos/dance.jpg"  alt="Dance photo">
+  </div> <!-- closes .wrap before the full-width pano -->
+
+  <img class="fullwidth" src="photos/star3.jpg" alt="Panorama">
+
+  <div class="wrap">
+    <img class="photo" src="photos/liquid.jpg" alt="Liquid style logo">
 
     <footer style="text-align:center; margin-top:40px; font-size:12px; color:#666;">
       © 2025 melmzv. All rights reserved.
