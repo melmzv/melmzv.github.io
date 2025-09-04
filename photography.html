@@ -1,115 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Melisa · Photography</title>
   <link rel="icon" type="image/png" href="favicon-96x96.png" />
   <style>
-    :root {
-      --wrap: 990px; /* page width */
+    :root{
+      --wrap: 990px;           /* page/content width */
+      --red: #ed372f;
     }
 
-    body {
-      margin: 0;
-      background-color: black;
-      color: white;
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    /* Base */
+    html,body{height:100%}
+    body{
+      margin:0; background:#000; color:#fff;
+      font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+      line-height:1.5;
     }
 
-    /* red separator bar at top */
-    .separator {
-      width: var(--wrap);
-      height: 10px;
-      background-color: #ed372f; /* Jason's red */
-      margin: 0 auto;            /* center the bar */
+    /* Top red bar (kept same width as content, centered) */
+    .separator{
+      width:min(var(--wrap), 100%);
+      height:10px; background:var(--red); margin:0 auto;
     }
 
-    /* page wrap */
-    .wrap {
-      max-width: var(--wrap);
-      margin: 0 auto;
-      padding: 28px 20px 40px;
-    }
+    /* Content wrapper */
+    .wrap{ max-width:var(--wrap); margin:0 auto; padding:28px 20px 40px; }
 
-    /* header text */
-    .header {
-      font-size: 1.8rem; /* slightly bigger like Jason’s */
-      font-weight: bold;
-      margin: 23px 0;
-      margin-left: 30px;
-    }
+    /* Header */
+    .header{ font-size:1.8rem; font-weight:700; margin:23px 0 18px; margin-left:30px; }
+    .header a{ color:var(--red); text-decoration:underline; text-underline-offset:4px; text-decoration-thickness:1px; transition:color .25s ease; }
+    .header a:hover{ color:#fff; }
+    .header .slash{ color:#565656; margin:0 3px; font-weight:700; }
+    .header .photography{ color:#fff; font-weight:700; }
 
-    /* Melisa (red, underlined) */
-    .header a {
-      color: #ed372f;
-      text-decoration: underline;
-      text-underline-offset: 4px;      /* pushes the underline lower */
-      text-decoration-thickness: 1px;  /* makes it thinner */
-      font-weight: bold;
-    }
-     /* Melisa (red, underlined) */
-    .header a {
-      color: #ed372f;
-      text-decoration: underline;
-      font-weight: bold;
-      transition: color 0.3s ease; /* smooth transition */
-    }
-
-    /* Hover effect */
-    .header a:hover {
-      color: #ffffff; /* turns white on hover */
-    }
-
-    /* Slash (gray) */
-    .header .slash {
-      color: #565656;
-      margin: 0 3px;
-      font-weight: bold;
-    }
-
-    /* Photography (white, bold) */
-    .header .photography {
-      color: #ffffff;
-      font-weight: bold;
-    }
-
-    /* images layout */
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr); /* 4 equal columns */
-      gap: 12px; /* spacing between photos */
-    }
-
-    .gallery img {
-      width: 100%;       /* make each photo fill its grid cell */
-      height: auto;
-      display: block;
-      border-radius: 0px; /* optional */
-      object-fit: cover;  /* keeps proportions without distortion */
-    }
-    .gallery-two {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
-      gap: 12px; /* spacing between the photos */
-      margin-top: 30px; /* space above */
-    }
-
-    .gallery-two img {
-      width: 100%;       /* fill each half */
-      height: auto;
-      display: block;
-      border-radius: 0px;
-      object-fit: cover;
-    }
-
-    .fullwidth img {
-      width: 50%;      /* fills the entire page width */
-      max-width: 50%;  /* prevents shrinking */
-      height: auto;     /* keeps proportions */
-      display: block;
-      margin: 30px auto;   /* optional space above/below */
-      border-radius: 0; /* no rounding for edge-to-edge look */
+    /* Single photos (stacked) */
+    .photo{
+      display:block;
+      width:80%;        /* fill the content width */
+      height:auto;
+      margin:0 auto 100px;   /* space between photos */
+      border-radius:0;   /* square corners */
     }
   </style>
 </head>
@@ -121,38 +54,22 @@
   <div class="wrap">
     <!-- Header -->
     <div class="header">
-      <a href="index.html">Melisa</a>
-      <span class="slash">/</span>
-      <span class="photography">Photography</span>
+      <a href="index.html">Melisa</a><span class="slash">/</span><span class="photography">Photography</span>
     </div>
 
-  <!-- Image gallery -->
-  <div class="gallery">
-    <img src="photos/night_1.jpeg" alt="Night photo 1">
-    <img src="photos/night_2.jpeg" alt="Night photo 2">
-    <img src="photos/night_3.jpeg" alt="Night photo 3">
-    <img src="photos/night_4.jpeg" alt="Night photo 4">
+    <!-- Each photo = one image element -->
+    <img class="photo" src="photos/night_1.jpeg" alt="Night photo 1">
+    <img class="photo" src="photos/flash_33.jpg" alt="Flash photo 33">
+    <img class="photo" src="photos/flash_4.jpg"  alt="Flash photo 4">
+    <img class="photo" src="photos/sits.jpg"     alt="Sits photo">
+    <img class="photo" src="photos/stands.jpeg"     alt="Sits photo">
+    <img class="photo" src="photos/love.jpg"     alt="Sits photo">
+    <img class="photo" src="photos/liquid.jpg"   alt="Liquid style logo">
+
+    <footer style="text-align:center; margin-top:40px; font-size:12px; color:#666;">
+      © 2025 melmzv. All rights reserved.
+    </footer>
   </div>
 
-  <!-- Two-photo row -->
-  <div class="gallery-two">
-    <img src="photos/flash_33.jpg" alt="Flash photo 33">
-    <img src="photos/flash_4.jpg" alt="Flash photo 4">
-  </div>
-
-  <!-- New two-photo row -->
-  <div class="gallery-two">
-    <img src="photos/sits.jpg" alt="Sits photo">
-  </div>
-
-  <!-- Full-width photo -->
-  <div class="fullwidth">
-    <img src="photos/liquid.jpg" alt="Liquid style logo" />
-  </div>
-
-  <footer style="text-align:center; margin-top:40px; font-size:12px; color:#666;">
-    © 2025 melmzv. All rights reserved.
-  </footer>
-</div>
 </body>
 </html>
