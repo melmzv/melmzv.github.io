@@ -96,7 +96,7 @@
     }
 
     .bubble a.hidden-link:hover {
-      color: #170706;          /* light blue on hover */
+      color: #170706;          /* dark brown on hover */
     }
     .case .sub a {
       color: inherit;           /* same as surrounding text */
@@ -155,6 +155,9 @@
       }
     @media (max-width:820px){ .shots{ grid-template-columns:1fr; } }
   </style>
+  <script defer id="MathJax-script"
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
 </head>
 <body>
   <div class="wrap">
@@ -192,7 +195,7 @@
       <a href="photography.html">Photography</a>
       <a href="mailto:melisa.profile@gmail.com">Email</a>
       <a href="https://www.linkedin.com/in/melisamazaeva" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://huggingface.co/melmzv" target="_blank" rel="noopener">HuggingFace</a>
+      <a href="https://huggingface.co/melmzv" target="_blank" rel="noopener">Hugging Face</a>
       <a href="https://github.com/melmzv" target="_blank" rel="noopener">GitHub</a>
     </nav>
 
@@ -216,7 +219,7 @@
 
         <div class="tags">
           <span class="tag">Python</span>
-          <span class="tag">HuggingFace</span>
+          <span class="tag">Hugging Face</span>
           <span class="tag">FinBERT</span>
           <span class="tag">Transparent research</span>
         </div>
@@ -231,7 +234,7 @@
       <article class="case">
         <h3>
           <a href="https://github.com/melmzv/huwiwiQuartoThesis" target="_blank" rel="noopener">
-            huwiwiQuartoThesis
+            Quarto Thesis Template for HU Berlin
           </a>
         </h3>
         <p class="sub">
@@ -262,7 +265,7 @@
       <article class="case">
         <h3>
           <a href="https://github.com/melmzv/sentiment-macro-dynamics" target="_blank" rel="noopener">
-            sentiment-macro-dynamics
+            Sentiment Dynamics of Fed Speeches
           </a>
         </h3>
         <p class="sub">
@@ -297,7 +300,7 @@
       <article class="case">
         <h3>
           <a href="https://github.com/melmzv/ai-hiring-simulation" target="_blank" rel="noopener">
-            ai-hiring-simulation
+            AI Job-Matching Simulation
           </a>
         </h3>
 
@@ -395,7 +398,7 @@
 
         <!-- Relevance -->
         <p class="sub">
-          Useful for competition policya and oversight discussions - where diversification is real vs. where Big&nbsp;4 dominance persists.
+          Useful for competition policy and regulatory debates - where diversification is real vs. where Big&nbsp;4 dominance persists.
         </p>
 
         <div class="tags">
@@ -433,7 +436,7 @@
 
         <!-- Relevance -->
         <p class="sub">
-          Practical for screening and valuation sanity checks.
+          Practical for screening and valuation cross-checks.
         </p>
 
         <div class="tags">
@@ -476,6 +479,84 @@
           <span class="tag">Investor protection</span>
           <span class="tag">Cross-country</span>
           <span class="tag">Reproducible research</span>
+        </div>
+
+        <!-- under the Earnings Management & Investor Protection case -->
+        <div class="shots">
+          <img src="projects/em_table1.png" alt="Replicated EM aggregate country ranking (1990–1999)">
+        </div>
+
+        <p class="sub">Key definitions used to build EM1–EM4 and the aggregate score:</p>
+
+        <div class="shots">
+          <div style="max-width:60ch">
+
+            <!-- Accruals and CFO -->
+            <p>\[
+              \text{Accruals}_t
+              = \big(\Delta CA_t - \Delta Cash_t\big)
+                - \big(\Delta CL_t - \Delta STD_t - \Delta TP_t\big)
+                - Dep_t
+            \]</p>
+            <p>\[
+              CFO_t = OI_t - \text{Accruals}_t
+            \]</p>
+
+            <!-- EM1: volatility ratio -->
+            <p><strong>EM1 (Volatility ratio)</strong> — median across firms (by country) of the ratio of
+              scaled standard deviations:
+            \[
+              EM1_c = \operatorname{median}_{i\in c}
+              \left(
+                \frac{\sigma(OI_i)/TA_{i,t-1}}{\sigma(CFO_i)/TA_{i,t-1}}
+              \right)
+            \]</p>
+
+            <!-- EM2: Spearman correlation of changes -->
+            <p><strong>EM2 (Accruals–CFO comovement)</strong> — country-level Spearman correlation between
+              scaled changes:
+            \[
+              EM2_c = \rho_s\!\left(
+                \frac{\Delta\,\text{Accruals}}{TA_{t-1}},
+                \frac{\Delta\,CFO}{TA_{t-1}}
+              \right)_c
+            \]</p>
+
+            <!-- EM3: absolute accruals intensity -->
+            <p><strong>EM3 (Absolute accruals intensity)</strong> — median across firms (by country) of:
+            \[
+              EM3_c = \operatorname{median}_{i\in c}
+              \left(
+                \frac{\lvert \text{Accruals}_i \rvert}{\lvert CFO_i \rvert}
+              \right)
+            \]</p>
+
+            <!-- EM4: small profits vs small losses -->
+            <p><strong>EM4 (Small profits / small losses)</strong> — ratio of counts where
+              \(NE/TA_{t-1}\) is “small”:
+            \[
+              \text{small profit: } 0 \le \frac{NE}{TA_{t-1}} \le 0.01, \quad
+              \text{small loss: } -0.01 \le \frac{NE}{TA_{t-1}} < 0
+            \]
+            \[
+              EM4_c
+              = \frac{\#\{\text{small profits}\}_c}{\#\{\text{small losses}\}_c},
+              \quad \text{computed only if } \#\{\text{small losses}\}_c \ge 5
+            \]</p>
+
+            <!-- Aggregate score (average rank) -->
+            <p><strong>Aggregate EM score</strong> — average of the country ranks of the four metrics:
+            \[
+              \text{AggEM}_c =
+              \frac{1}{4}\big(
+                \operatorname{rank}(EM1_c) +
+                \operatorname{rank}(EM2_c) +
+                \operatorname{rank}(EM3_c) +
+                \operatorname{rank}(EM4_c)
+              \big)
+            \]</p>
+
+          </div>
         </div>
 
       </article>
