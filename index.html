@@ -481,82 +481,51 @@
           <span class="tag">Reproducible research</span>
         </div>
 
-        <!-- under the Earnings Management & Investor Protection case -->
-        <div class="shots">
-          <img src="projects/em_table1.png" alt="Replicated EM aggregate country ranking (1990–1999)">
+       <!-- Key Definitions -->
+        <div class="sub" style="font-size:14px; color:#a0a0a6; margin:20px 0;">
+          Key definitions used to build EM1–EM4 and the aggregate score:
         </div>
 
-        <p class="sub">Key definitions used to build EM1–EM4 and the aggregate score:</p>
+        <div style="background:#000; color:#a0a0a6; padding:18px 22px; border-radius:12px; font-size:14px; line-height:1.6; margin-bottom:20px;">
+          \[
+          Accruals_t = (\Delta CA_t - \Delta Cash_t) - (\Delta CL_t - \Delta STD_t - \Delta TP_t) - Dep_t
+          \]
+          \[
+          CFO_t = OI_t - Accruals_t
+          \]
 
+          <br><strong>EM1 (Volatility ratio)</strong>: median across firms (by country) of the ratio of scaled standard deviations:  
+          \[
+          EM1_c = \text{median}_{i \in c} \left( \frac{\sigma(OI_i)/TA_{i,t-1}}{\sigma(CFO_i)/TA_{i,t-1}} \right)
+          \]
+
+          <br><strong>EM2 (Accruals–CFO comovement)</strong>: country-level Spearman correlation between scaled changes:  
+          \[
+          EM2_c = \rho_c \left( \frac{\Delta Accruals}{TA_{t-1}}, \frac{\Delta CFO}{TA_{t-1}} \right)
+          \]
+
+          <br><strong>EM3 (Absolute accruals intensity)</strong>: median across firms (by country) of:  
+          \[
+          EM3_c = \text{median}_{i \in c} \left( \frac{|Accruals_i|}{|CFO_i|} \right)
+          \]
+
+          <br><strong>EM4 (Small profits / small losses)</strong>: ratio of counts where \( NE/TA_{t-1} \) is “small”:  
+          \[
+          0 \leq \frac{NE}{TA_{t-1}} \leq 0.01 \quad \text{(small profit)}, \qquad -0.01 \leq \frac{NE}{TA_{t-1}} < 0 \quad \text{(small loss)}
+          \]
+          \[
+          EM4_c = \frac{\#\{\text{small profits}\}_c}{\#\{\text{small losses}\}_c}, \quad \text{computed only if } \#\{\text{small losses}\}_c \geq 5
+          \]
+
+          <br><strong>Aggregate EM score</strong>: average of the country ranks of the four metrics:  
+          \[
+          AggEM_c = \frac{1}{4} \left( \text{rank}(EM1_c) + \text{rank}(EM2_c) + \text{rank}(EM3_c) + \text{rank}(EM4_c) \right)
+          \]
+        </div>
+
+        <!-- Table Screenshot -->
         <div class="shots">
-          <div style="max-width:60ch">
-
-            <!-- Accruals and CFO -->
-            <p>\[
-              \text{Accruals}_t
-              = \big(\Delta CA_t - \Delta Cash_t\big)
-                - \big(\Delta CL_t - \Delta STD_t - \Delta TP_t\big)
-                - Dep_t
-            \]</p>
-            <p>\[
-              CFO_t = OI_t - \text{Accruals}_t
-            \]</p>
-
-            <!-- EM1: volatility ratio -->
-            <p><strong>EM1 (Volatility ratio)</strong> — median across firms (by country) of the ratio of
-              scaled standard deviations:
-            \[
-              EM1_c = \operatorname{median}_{i\in c}
-              \left(
-                \frac{\sigma(OI_i)/TA_{i,t-1}}{\sigma(CFO_i)/TA_{i,t-1}}
-              \right)
-            \]</p>
-
-            <!-- EM2: Spearman correlation of changes -->
-            <p><strong>EM2 (Accruals–CFO comovement)</strong> — country-level Spearman correlation between
-              scaled changes:
-            \[
-              EM2_c = \rho_s\!\left(
-                \frac{\Delta\,\text{Accruals}}{TA_{t-1}},
-                \frac{\Delta\,CFO}{TA_{t-1}}
-              \right)_c
-            \]</p>
-
-            <!-- EM3: absolute accruals intensity -->
-            <p><strong>EM3 (Absolute accruals intensity)</strong> — median across firms (by country) of:
-            \[
-              EM3_c = \operatorname{median}_{i\in c}
-              \left(
-                \frac{\lvert \text{Accruals}_i \rvert}{\lvert CFO_i \rvert}
-              \right)
-            \]</p>
-
-            <!-- EM4: small profits vs small losses -->
-            <p><strong>EM4 (Small profits / small losses)</strong> — ratio of counts where
-              \(NE/TA_{t-1}\) is “small”:
-            \[
-              \text{small profit: } 0 \le \frac{NE}{TA_{t-1}} \le 0.01, \quad
-              \text{small loss: } -0.01 \le \frac{NE}{TA_{t-1}} < 0
-            \]
-            \[
-              EM4_c
-              = \frac{\#\{\text{small profits}\}_c}{\#\{\text{small losses}\}_c},
-              \quad \text{computed only if } \#\{\text{small losses}\}_c \ge 5
-            \]</p>
-
-            <!-- Aggregate score (average rank) -->
-            <p><strong>Aggregate EM score</strong> — average of the country ranks of the four metrics:
-            \[
-              \text{AggEM}_c =
-              \frac{1}{4}\big(
-                \operatorname{rank}(EM1_c) +
-                \operatorname{rank}(EM2_c) +
-                \operatorname{rank}(EM3_c) +
-                \operatorname{rank}(EM4_c)
-              \big)
-            \]</p>
-
-          </div>
+          <img src="projects/em_table1.png" alt="Replicated Table 1 – Country scores for EM1–EM4" />
         </div>
 
       </article>
