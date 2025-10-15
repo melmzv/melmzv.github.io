@@ -377,6 +377,48 @@
         </div>
       </article>
 
+      <!-- Case: Earnings Management & Investor Protection (ARG SS24) -->
+      <div class="rule" aria-hidden="true"></div>
+      <article class="case">
+        <h3>
+          <a href="https://github.com/melmzv/arg_ss24_project" target="_blank" rel="noopener">
+            Earnings Management and Investor Protection
+          </a>
+        </h3>
+
+        <!-- Curiosity -->
+        <p class="sub">
+          Do stronger investor rights curb earnings management across countries?
+        </p>
+
+        <!-- Impact -->
+        <p class="sub">
+          Replicated <a href="https://ssrn.com/abstract=281832" target="_blank" rel="noopener">Leuz–Nanda–Wysocki (2003)</a> on Worldscope (1990–1999).  
+          31 countries · 18,040 firms · 123,469 firm-years.  
+          Rebuilt EM1–EM4 plus aggregate score; country ranks closely match the original.  
+          Patterns hold: weaker protection → more smoothing, larger accruals, loss avoidance.
+        </p>
+
+        <!-- Relevance -->
+        <p class="sub">
+          Benchmark for cross-country disclosure risk and governance screens.
+        </p>
+
+        <div class="tags">
+          <span class="tag">Worldscope</span>
+          <span class="tag">Investor protection</span>
+          <span class="tag">Cross-country</span>
+          <span class="tag">Reproducible research</span>
+        </div>
+
+
+        <div style="max-width:1000px;margin:24px auto;">
+          <iframe src="/projects/em_map_interactive.html" 
+                  width="100%" height="560" style="border:none;">
+          </iframe>
+      </article>
+
+
       <!-- Case: Audit Market Concentration in the EU (CQA WS24) -->
       <div class="rule" aria-hidden="true"></div>
       <article class="case">
@@ -451,88 +493,6 @@
         </div>
       </article>
 
-      <!-- Case: Earnings Management & Investor Protection (ARG SS24) -->
-      <div class="rule" aria-hidden="true"></div>
-      <article class="case">
-        <h3>
-          <a href="https://github.com/melmzv/arg_ss24_project" target="_blank" rel="noopener">
-            Earnings Management and Investor Protection
-          </a>
-        </h3>
-
-        <!-- Curiosity -->
-        <p class="sub">
-          Do stronger investor rights curb earnings management across countries?
-        </p>
-
-        <!-- Impact -->
-        <p class="sub">
-          Replicated <a href="https://ssrn.com/abstract=281832" target="_blank" rel="noopener">Leuz–Nanda–Wysocki (2003)</a> on Worldscope (1990–1999).  
-          31 countries · 18,040 firms · 123,469 firm-years.  
-          Rebuilt EM1–EM4 plus aggregate score; country ranks closely match the original.  
-          Patterns hold: weaker protection → more smoothing, larger accruals, loss avoidance.
-        </p>
-
-        <!-- Relevance -->
-        <p class="sub">
-          Benchmark for cross-country disclosure risk and governance screens.
-        </p>
-
-        <div class="tags">
-          <span class="tag">Worldscope</span>
-          <span class="tag">Investor protection</span>
-          <span class="tag">Cross-country</span>
-          <span class="tag">Reproducible research</span>
-        </div>
-
-       <!-- Key Definitions -->
-        <div class="sub" style="font-size:14px; color:#a0a0a6; margin:20px 0;">
-          Key definitions used to build EM1–EM4 and the aggregate score:
-        </div>
-
-        <div style="background:#000; color:#a0a0a6; padding:18px 22px; border-radius:12px; font-size:14px; line-height:1.6; margin-bottom:20px;">
-          \[
-          Accruals_t = (\Delta CA_t - \Delta Cash_t) - (\Delta CL_t - \Delta STD_t - \Delta TP_t) - Dep_t
-          \]
-          \[
-          CFO_t = OI_t - Accruals_t
-          \]
-
-          <br><strong>EM1 (Volatility ratio)</strong>: median across firms (by country) of the ratio of scaled standard deviations:  
-          \[
-          EM1_c = \text{median}_{i \in c} \left( \frac{\sigma(OI_i)/TA_{i,t-1}}{\sigma(CFO_i)/TA_{i,t-1}} \right)
-          \]
-
-          <br><strong>EM2 (Accruals–CFO comovement)</strong>: country-level Spearman correlation between scaled changes:  
-          \[
-          EM2_c = \rho_c \left( \frac{\Delta Accruals}{TA_{t-1}}, \frac{\Delta CFO}{TA_{t-1}} \right)
-          \]
-
-          <br><strong>EM3 (Absolute accruals intensity)</strong>: median across firms (by country) of:  
-          \[
-          EM3_c = \text{median}_{i \in c} \left( \frac{|Accruals_i|}{|CFO_i|} \right)
-          \]
-
-          <br><strong>EM4 (Small profits / small losses)</strong>: ratio of counts where \( NE/TA_{t-1} \) is “small”:  
-          \[
-          0 \leq \frac{NE}{TA_{t-1}} \leq 0.01 \quad \text{(small profit)}, \qquad -0.01 \leq \frac{NE}{TA_{t-1}} < 0 \quad \text{(small loss)}
-          \]
-          \[
-          EM4_c = \frac{\#\{\text{small profits}\}_c}{\#\{\text{small losses}\}_c}, \quad \text{computed only if } \#\{\text{small losses}\}_c \geq 5
-          \]
-
-          <br><strong>Aggregate EM score</strong>: average of the country ranks of the four metrics:  
-          \[
-          AggEM_c = \frac{1}{4} \left( \text{rank}(EM1_c) + \text{rank}(EM2_c) + \text{rank}(EM3_c) + \text{rank}(EM4_c) \right)
-          \]
-        </div>
-
-        <!-- Table Screenshot -->
-        <div class="shots">
-          <img src="projects/em_table1.png" alt="Replicated Table 1 – Country scores for EM1–EM4" />
-        </div>
-
-      </article>
 
     </section>
     <footer style="text-align:center; margin-top:40px; font-size:12px; color:#666;">
