@@ -7,8 +7,9 @@
   <link rel="icon" type="image/png" href="favicon-96x96.png" />
   <style>
     :root{
-      --wrap: 990px;           /* page/content width */
+      --wrap: 990px;
       --red: #ed372f;
+      --ink-dim: #ffffff;
     }
 
     /* Base */
@@ -36,23 +37,36 @@
     .header .slash{ color:#565656; margin:0 3px; font-weight:700; }
     .header .photography{ color:#fff; font-weight:700; }
 
-    /* Single photos (stacked) */
-    .photo{
-      display:block;
-      width:80%;        /* fill the content width */
-      height:auto;
-      margin:0 auto 150px;   /* space between photos */
-      border-radius:0;   /* square corners */
+    /* Photo + caption block */
+    figure.shot{
+      width:80%;
+      margin:0 auto 120px;
+    }
+    figure.shot img{
+      display:block; width:100%; height:auto; border-radius:0;
+    }
+    figcaption{
+      margin-top:10px;
+      color:var(--ink-dim);
+      font-size:0.95rem;
+      text-align:center;
+      letter-spacing:.2px;
+      font-style:italic;
     }
 
     /* Panorama: full page width */
     .fullwidth {
-      display: block;
-      width: 100vw;        /* fills entire viewport width */
-      max-width: 130%;     
-      margin: 0;           /* remove margins */
+      display:block;
+      width: 100vw;
+      max-width: 130%;
+      margin: 0;
       height: auto;
       border-radius: 0;
+    }
+
+    @media (max-width:820px){
+      figure.shot{ width:92%; margin-bottom:90px; }
+      figcaption{ font-size:.9rem; }
     }
   </style>
 </head>
@@ -67,29 +81,91 @@
       <a href="index.html">Melisa</a><span class="slash">/</span><span class="photography">Photography</span>
     </div>
 
-    <!-- Each photo = one image element -->
-    <img class="photo" src="photos/flash_4.jpg"  alt="Flash portrait 2">
-    <img class="photo" src="photos/night_1.jpeg" alt="Night street view">
-    <img class="photo" src="photos/flash_33.jpg" alt="Flash portrait 1">
-    <img class="photo" src="photos/sits.jpg"     alt="Person sitting">
-    <img class="photo" src="photos/stands.jpeg"  alt="Person standing">
-    <img class="photo" src="photos/love.jpg"     alt="Couple in love">
-    <img class="photo" src="photos/green.jpeg"   alt="Green scenery">
-    <img class="photo" src="photos/stand.jpg"    alt="Standing silhouette">
-    <img class="photo" src="photos/chess.jpg"    alt="Playing chess">
-    <img class="photo" src="photos/palm.jpg"     alt="Palm tree view">
-    <img class="photo" src="photos/tonne.jpg"    alt="Urban street scene">
-    <img class="photo" src="photos/sky.jpg"      alt="Sky with clouds">
-    <img class="photo" src="photos/walk.jpg"     alt="Walking scene">
-    <img class="photo" src="photos/dog2.jpg"     alt="Dog portrait">
-    <img class="photo" src="photos/mount1.jpg"   alt="Mountain landscape">
-    <img class="photo" src="photos/dance.jpg"    alt="Dance performance">
+    <!-- Photos with captions -->
+    <figure class="shot">
+      <img src="photos/flash_4.jpg" alt="Portrait with sunglasses at night">
+      <figcaption>Vogue after midnight</figcaption>
+    </figure>
+
+    <figure class="shot">
+      <img src="photos/night_1.jpeg" alt="Dim red club scene">
+      <figcaption>A fleeting scene</figcaption>
+    </figure>
+
+    <figure class="shot">
+      <img src="photos/flash_33.jpg" alt="Older man posing with peace sign">
+      <figcaption>The baller in the ballroom</figcaption>
+    </figure>
+
+    <figure class="shot">
+      <img src="photos/sits.jpg" alt="Woman seated in soft light">
+      <figcaption>Framed in thought</figcaption>
+    </figure>
+
+    <figure class="shot">
+      <img src="photos/stands.jpeg" alt="Crowd ascending through narrow glass tunnel">
+      <figcaption>A rockstar is seen</figcaption>
+    </figure>
+
+    <figure class="shot">
+      <img src="photos/love.jpg" alt="Couple kissing on a park bench">
+      <figcaption>Love in komorebi</figcaption>
+    </figure>
+
+    <figure class="shot">
+      <img src="photos/green.jpeg" alt="Friends in bright jackets, street scene">
+      <figcaption>Matcha and messages</figcaption>
+    </figure>
+
+    <figure class="shot">
+      <img src="photos/stand.jpg" alt="Man waiting at a crosswalk">
+      <figcaption>The longest red light</figcaption>
+    </figure>
+
+    <figure class="shot">
+      <img src="photos/chess.jpg" alt="Men gathered around a chess game outdoors">
+      <figcaption>The Queen’s Gambit</figcaption>
+    </figure>
+
+    <figure class="shot">
+      <img src="photos/palm.jpg" alt="Passenger gazing at palm trees through a car window">
+      <figcaption>A horizon of palms</figcaption>
+    </figure>
+
+    <figure class="shot">
+      <img src="photos/tonne.jpg" alt="Blue trash can overlooking the sea">
+      <figcaption>Trash with a sea view</figcaption>
+    </figure>
+
+    <figure class="shot">
+      <img src="photos/sky.jpg" alt="Theme-park stall under deep blue sky">
+      <figcaption>Route 66</figcaption>
+    </figure>
+
+    <figure class="shot">
+      <img src="photos/walk.jpg" alt="Doorway opening onto a bright courtyard">
+      <figcaption>Every exit is an entrance elsewhere</figcaption>
+    </figure>
+
+    <figure class="shot">
+      <img src="photos/dog2.jpg" alt="Children walking a corgi on snow">
+      <figcaption>A corgi far from the crown</figcaption>
+    </figure>
+
+    <figure class="shot">
+      <img src="photos/mount1.jpg" alt="Ski slope and gondola with evening light">
+      <figcaption>Hair in the wind, mountains in the mind</figcaption>
+    </figure>
+
+    <figure class="shot">
+      <img src="photos/dance.jpg" alt="Crowd at an open-air party">
+      <figcaption>The spark</figcaption>
+    </figure>
   </div> <!-- closes .wrap before the full-width pano -->
 
   <img class="fullwidth" src="photos/star3.jpg" alt="Panorama">
 
   <div class="wrap">
-
     <footer style="text-align:center; margin-top:40px; font-size:12px; color:#666;">
       © 2025 melmzv. All rights reserved.
     </footer>
