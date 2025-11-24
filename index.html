@@ -147,6 +147,14 @@
       background: #111;
       margin: 0 auto;
     }
+
+    /* remove frame for images with .no-frame */
+    .shots img.no-frame {
+      border: none;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+    }
     
     
           /* Case where only one image in .shots */
@@ -301,7 +309,7 @@
         </div>
 
          <div class="shots">
-            <img src="projects/WiE.png" alt="Women in Economics Science Cinema Event" style="max-width:40%;">
+            <img src="projects/WiE_logo.jpg" alt="Women in Economics Science Cinema Event" class="no-frame" style="max-width:40%;">
         </div>
       </article>
 
